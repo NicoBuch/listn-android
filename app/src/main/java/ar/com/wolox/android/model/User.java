@@ -9,4 +9,13 @@ public class User {
     String trackUri;
     String spotifyId;
     String distance;
+    String name;
+
+    public User(String name){
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
