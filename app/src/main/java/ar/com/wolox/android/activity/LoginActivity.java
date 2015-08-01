@@ -52,6 +52,13 @@ import ar.com.wolox.android.Configuration;
 import ar.com.wolox.android.ListnApplication;
 import ar.com.wolox.android.R;
 import ar.com.wolox.android.utils.PreferencesUtils;
+import ar.com.wolox.android.utils.SpotifyUtils;
+import kaaes.spotify.webapi.android.SpotifyApi;
+import kaaes.spotify.webapi.android.SpotifyService;
+import kaaes.spotify.webapi.android.models.UserPrivate;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 public class LoginActivity extends Activity implements
         PlayerNotificationCallback, ConnectionStateCallback{
@@ -89,6 +96,8 @@ public class LoginActivity extends Activity implements
                 Intent mainIntent = new Intent(this, MainActivity.class);
                 startActivity(mainIntent);
                 finish();
+
+
                 // Llamar a la API
                 // success -> SharedPreferences accessToken & intent a MainActivity
             }

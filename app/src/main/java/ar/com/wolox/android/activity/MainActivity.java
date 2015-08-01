@@ -8,10 +8,18 @@ import android.widget.TextView;
 
 import ar.com.wolox.android.R;
 import ar.com.wolox.android.utils.PreferencesUtils;
+import ar.com.wolox.android.utils.SpotifyUtils;
+import kaaes.spotify.webapi.android.SpotifyApi;
+import kaaes.spotify.webapi.android.SpotifyService;
+import kaaes.spotify.webapi.android.models.UserPrivate;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 public class MainActivity extends ListnActivity {
 
     private Button mSearchButton;
+    private TextView mNameText;
 
     @Override
     protected int layout() {
@@ -21,6 +29,7 @@ public class MainActivity extends ListnActivity {
     @Override
     protected void setUi() {
         mSearchButton = (Button) findViewById(R.id.button_search);
+        mNameText = (TextView) findViewById(R.id.text_name_me);
     }
 
     @Override
@@ -36,7 +45,19 @@ public class MainActivity extends ListnActivity {
 
     @Override
     protected void populate() {
+        SpotifyApi api = SpotifyUtils.getSpotifyApi();
+        SpotifyService service =  api.getService();
+        service.getMe(new Callback<UserPrivate>() {
+            @Override
+            public void success(UserPrivate userPrivate, Response response) {
+                mNameText.setText(userPrivate.display_name);
+            }
 
+            @Override
+            public void failure(RetrofitError error) {
+                mNameText.setText("NO FUNCIONO LA MIERDA ESTA");
+            }
+        });
     }
 
     @Override
@@ -47,6 +68,7 @@ public class MainActivity extends ListnActivity {
             finish();
             return;
         }
+
         Log.d("LOGGED", "ALREADY LOGGED");
 
     }
