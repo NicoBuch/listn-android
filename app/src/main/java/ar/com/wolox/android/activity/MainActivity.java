@@ -1,8 +1,11 @@
 package ar.com.wolox.android.activity;
 
+import android.content.Intent;
+import android.util.Log;
 import android.widget.TextView;
 
 import ar.com.wolox.android.R;
+import ar.com.wolox.android.utils.PreferencesUtils;
 
 public class MainActivity extends ListnActivity {
 
@@ -27,6 +30,13 @@ public class MainActivity extends ListnActivity {
 
     @Override
     protected void init() {
+        if(PreferencesUtils.getAccessToken() == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+            return;
+        }
+        Log.d("LOGGED", "ALREADY LOGGED");
 
     }
 }

@@ -1,5 +1,15 @@
-import android.app.Application;
+package ar.com.wolox.android;
 
+import android.app.Application;
+import android.location.Location;
+import android.os.Bundle;
+import android.util.Log;
+
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -9,26 +19,34 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 
 import java.lang.reflect.Type;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.TimeZone;
 
-import ar.com.wolox.android.Configuration;
 import ar.com.wolox.android.service.interceptor.SecuredRequestInterceptor;
 import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
 import retrofit.converter.GsonConverter;
 
-public class ListApplication extends Application {
+public class ListnApplication extends Application implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
-    private static ListApplication sApplication;
+    private static final String TAG = "ListnApplication";
+
+    private static ListnApplication sApplication;
     private static RequestInterceptor sSecureRequestInterceptor;
 
     static {
         buildRestServices();
     }
+
+    private GoogleApiClient mGoogleApiClient;
+    private Location mLastLocation;
+    private LocationRequest mLocationRequest;
+    private Location mCurrentLocation;
+    private String mLastUpdateTime;
 
     public static void buildRestServices() {
         sSecureRequestInterceptor = new SecuredRequestInterceptor();
@@ -46,6 +64,25 @@ public class ListApplication extends Application {
                 .setConverter(new GsonConverter(gson))
                 .setRequestInterceptor(sSecureRequestInterceptor)
                 .build();
+    }
+
+    @Override
+    public void onConnected(Bundle bundle) {
+        boolean mRequestingLocationUpdates = true;
+        Log.e(TAG, "CONNECTION GOOD");
+        if (mRequestingLocationUpdates) {
+            startLocationUpdates();
+        }
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+        Log.e(TAG, "CONNECTION SUSPENDED");
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
+        Log.e(TAG, "CONNECTION FAILED");
     }
 
     public static class DateDeserializer implements JsonDeserializer<Date> {
@@ -73,13 +110,16 @@ public class ListApplication extends Application {
         }
     }
 
-    public static ListApplication getInstance() {
+    public static ListnApplication getInstance() {
         return sApplication;
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
+        buildGoogleApiClient();
+        mGoogleApiClient.connect();
+        createLocationRequest();
         sApplication = this;
     }
 
@@ -90,5 +130,28 @@ public class ListApplication extends Application {
                 .addOnConnectionFailedListener(this)
                 .addApi(LocationServices.API)
                 .build();
+    }
+
+    public GoogleApiClient getMGoogleApiClient(){
+        return mGoogleApiClient;
+    }
+
+    protected void createLocationRequest() {
+        mLocationRequest = new LocationRequest();
+        mLocationRequest.setInterval(10000);
+        mLocationRequest.setFastestInterval(5000);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+    }
+
+    protected void startLocationUpdates() {
+        LocationServices.FusedLocationApi.requestLocationUpdates(
+                mGoogleApiClient, mLocationRequest, this);
+    }
+
+
+    @Override
+    public void onLocationChanged(Location location) {
+        mCurrentLocation = location;
+        mLastUpdateTime = DateFormat.getTimeInstance().format(new Date());
     }
 }

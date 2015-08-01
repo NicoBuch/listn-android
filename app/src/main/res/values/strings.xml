@@ -2,4 +2,8 @@
     <string name="error">Ups! Error</string>
     <string name="retry">Reintentar</string>
     <string name="no_results">Sin resultados</string>
+    <string name="title_activity_listners">ListnersActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 </resources>

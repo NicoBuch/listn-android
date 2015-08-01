@@ -9,7 +9,10 @@ import android.content.ContentResolver;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.location.Location;
+import android.location.LocationListener;
 import android.net.Uri;
 import android.os.AsyncTask;
 
@@ -28,9 +31,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationServices;
 import com.spotify.sdk.android.authentication.AuthenticationClient;
 import com.spotify.sdk.android.authentication.AuthenticationRequest;
 import com.spotify.sdk.android.authentication.AuthenticationResponse;
@@ -42,24 +49,22 @@ import com.spotify.sdk.android.player.PlayerNotificationCallback;
 import com.spotify.sdk.android.player.PlayerState;
 
 import ar.com.wolox.android.Configuration;
+import ar.com.wolox.android.ListnApplication;
 import ar.com.wolox.android.R;
+import ar.com.wolox.android.utils.PreferencesUtils;
 
 public class LoginActivity extends Activity implements
-        PlayerNotificationCallback, ConnectionStateCallback {
-
-    private Player mPlayer;
+        PlayerNotificationCallback, ConnectionStateCallback{
 
     // TODO: Replace with your redirect URI
     private static final String REDIRECT_URI = "listn-protocol://callback";
 
     private static final int REQUEST_CODE = 1337;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         AuthenticationRequest.Builder builder = new AuthenticationRequest.Builder(
                 Configuration.CLIENT_ID,
@@ -71,6 +76,7 @@ public class LoginActivity extends Activity implements
         AuthenticationClient.openLoginActivity(this, REQUEST_CODE, request);
     }
 
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
@@ -79,7 +85,10 @@ public class LoginActivity extends Activity implements
         if (requestCode == REQUEST_CODE) {
             AuthenticationResponse response = AuthenticationClient.getResponse(resultCode, intent);
             if (response.getType() == AuthenticationResponse.Type.TOKEN) {
-                Log.d("LOGIN", "JAJA");
+                PreferencesUtils.setAccessToken(response.getAccessToken());
+                Intent mainIntent = new Intent(this, MainActivity.class);
+                startActivity(mainIntent);
+                finish();
                 // Llamar a la API
                 // success -> SharedPreferences accessToken & intent a MainActivity
             }
