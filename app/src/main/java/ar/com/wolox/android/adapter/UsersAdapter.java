@@ -91,7 +91,9 @@ public class UsersAdapter extends BaseAdapter {
 
         item.textViewUsername.setText(mUser.getName());
         item.textViewDistance.setText(mUser.getDistance() + " Away");
-        item.textViewTrackname.setText(mUser.getTrack().getName() + " - " + mUser.getTrack().getArtist());
+        if (mUser.getTrack() != null) {
+            item.textViewTrackname.setText(mUser.getTrack().getName() + " - " + mUser.getTrack().getArtist());
+        }
         item.textViewLikesCount.setText(String.valueOf(mUser.getLikes()));
         item.imageStartMusic.setOnClickListener(new View.OnClickListener() {
             @Override

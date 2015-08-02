@@ -119,21 +119,21 @@ public class LoginActivity extends ListnActivity implements
         if (requestCode == REQUEST_CODE) {
             AuthenticationResponse response = AuthenticationClient.getResponse(resultCode, intent);
             if (response.getType() == AuthenticationResponse.Type.TOKEN) {
-                Log.d(TAG, "Expires in: " +  response.getExpiresIn());
+                Log.d(TAG, "Expires in: " + response.getExpiresIn());
                 PreferencesUtils.setAccessToken(response.getAccessToken());
 
                 SpotifyUtils.getSpotifyApi().getService().getMe(new WoloxCallback<UserPrivate>() {
                     @Override
                     public void success(UserPrivate userPrivate, Response response) {
                         PreferencesUtils.setSpotifyUserId(userPrivate.id);
+                        Intent mainIntent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(mainIntent);
+                        finish();
                     }
 
                 });
 
 
-                Intent mainIntent = new Intent(this, MainActivity.class);
-                startActivity(mainIntent);
-                finish();
 
 
                 // Llamar a la API
