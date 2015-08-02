@@ -33,7 +33,7 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-public class MainActivity extends ListnActivity implements Player.InitializationObserver, PlayerStateCallback {
+public class MainActivity extends ListnActivity  {
 
     private EventBus bus = EventBus.getDefault();
 
@@ -85,8 +85,6 @@ public class MainActivity extends ListnActivity implements Player.Initialization
                 //mNameText.setText("NO FUNCIONO LA MIERDA ESTA");
             }
         });
-        //Config config = new Config(this, PreferencesUtils.getAccessToken(), Configuration.CLIENT_ID);
-        //Spotify.getPlayer(config, ListnApplication.getInstance(), this);
         SharedPreferences prefs = getSharedPreferences("ListnApp", MODE_PRIVATE);
         mTrackName.setText(prefs.getString(ListnApplication.CURRENT_TRACK, ""));
         mTrackArtist.setText(prefs.getString(ListnApplication.CURRENT_ARTIST, ""));
@@ -116,41 +114,6 @@ public class MainActivity extends ListnActivity implements Player.Initialization
 
     }
 
-    @Override
-    public void onInitialized(Player player) {
-        player.getPlayerState(this);
-    }
-
-    @Override
-    public void onError(Throwable throwable) {
-
-        Log.e(TAG, "FALLO EL PLAYER");
-    }
-
-    @Override
-    public void onPlayerState(PlayerState playerState) {
-        String trackId = playerState.trackUri;
-        Log.d(TAG, "TRACK ID: " + trackId + ", PLAYING: " + playerState.playing);
-        if(!playerState.playing) {
-            return;
-        }
-        SpotifyUtils.getSpotifyApi().getService().getTrack(playerState.trackUri, new Callback<Track>() {
-            @Override
-            public void success(Track track, Response response) {
-                updateTrackView(track);
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                Log.e(TAG, "FALLO EL Pedido al track");
-            }
-        });
-    }
-
-    private void updateTrackView(Track track) {
-        mTrackName.setText(track.name);
-        mTrackArtist.setText(track.artists.get(0).name);
-    }
 
     public void onEvent(PlayingTrackUpdateEvent event){
         SharedPreferences prefs = getSharedPreferences("ListnApp", MODE_PRIVATE);
