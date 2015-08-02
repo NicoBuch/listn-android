@@ -89,26 +89,7 @@ public class MainActivity extends ListnActivity  {
                 //mNameText.setText("NO FUNCIONO LA MIERDA ESTA");
             }
         });
-        SharedPreferences prefs = getSharedPreferences("ListnApp", MODE_PRIVATE);
-        Boolean playing = prefs.getBoolean(ListnApplication.CURRENT_PLAYING, false);
-        if (playing) {
-            mOnAireView.setVisibility(View.VISIBLE);
-            mOffAirView.setVisibility(View.GONE);
-            mTrackName.setText(prefs.getString(ListnApplication.CURRENT_TRACK, ""));
-            mTrackArtist.setText(prefs.getString(ListnApplication.CURRENT_ARTIST, ""));
-            String album = prefs.getString(ListnApplication.CURRENT_ALBUM, "");
-            if (album != "") {
-                Picasso.with(getApplicationContext()).load(album)
-                        .error(R.drawable.home_like_button_on)
-                        .noFade()
-                        .into(mAlbumImageView);
-            }
-        } else {
-            mOffAirView.setVisibility(View.VISIBLE);
-            mOnAireView.setVisibility(View.GONE);
-            mAlbumImageView.setImageDrawable(null);
-        }
-
+        setCurrentTrackView();
     }
 
     @Override
@@ -131,26 +112,28 @@ public class MainActivity extends ListnActivity  {
         super.onDestroy();
     }
 
-    public void onEvent(PlayingTrackUpdateEvent event){
-        SharedPreferences prefs = getSharedPreferences("ListnApp", MODE_PRIVATE);
-        if(prefs.getBoolean(ListnApplication.CURRENT_PLAYING, false)) {
+    private void setCurrentTrackView() {
+        if (PreferencesUtils.getCurrentPlaying()) {
             mOnAireView.setVisibility(View.VISIBLE);
             mOffAirView.setVisibility(View.GONE);
-            mTrackArtist.setText(prefs.getString(ListnApplication.CURRENT_ARTIST, ""));
-            mTrackName.setText(prefs.getString(ListnApplication.CURRENT_TRACK, ""));
-            String album = prefs.getString(ListnApplication.CURRENT_ALBUM, "");
+            mTrackName.setText(PreferencesUtils.getCurrentTrack());
+            mTrackArtist.setText(PreferencesUtils.getCurrentArtist());
+            String album = PreferencesUtils.getCurrentAlbum();
             if (album != "") {
                 Picasso.with(getApplicationContext()).load(album)
                         .error(R.drawable.home_like_button_on)
                         .noFade()
                         .into(mAlbumImageView);
             }
-        }
-        else{
+        } else {
             mOffAirView.setVisibility(View.VISIBLE);
             mOnAireView.setVisibility(View.GONE);
             mAlbumImageView.setImageDrawable(null);
         }
+    }
+
+    public void onEvent(PlayingTrackUpdateEvent event){
+        setCurrentTrackView();
     }
 
 }

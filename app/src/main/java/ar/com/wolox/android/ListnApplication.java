@@ -55,10 +55,7 @@ import retrofit.converter.GsonConverter;
 public class ListnApplication extends Application implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
     private static final String TAG = "ListnApplication";
-    public static final String CURRENT_TRACK = "track";
-    public static final String CURRENT_ARTIST = "artist";
-    public static final String CURRENT_ALBUM = "album";
-    public static final String CURRENT_PLAYING = "playing";
+
 
     private static ListnApplication sApplication;
     private static RequestInterceptor sSecureRequestInterceptor;
@@ -153,20 +150,19 @@ public class ListnApplication extends Application implements GoogleApiClient.Con
         mGoogleApiClient.connect();
         createLocationRequest();
         sApplication = this;
-        registerMediaReceiver();
+        //registerMediaReceiver();
     }
 
     private void registerMediaReceiver() {
         IntentFilter iF = new IntentFilter();
         iF.addAction("com.android.music.metachanged");
-
         iF.addAction("com.htc.music.metachanged");
-
         iF.addAction("fm.last.android.metachanged");
         iF.addAction("com.sec.android.app.music.metachanged");
         iF.addAction("com.nullsoft.winamp.metachanged");
         iF.addAction("com.amazon.mp3.metachanged");
         iF.addAction("com.spotify.music.metadatachanged");
+        iF.addAction("com.spotify.mobile.android.metadatachanged");
         iF.addAction("com.miui.player.metachanged");
         iF.addAction("com.real.IMP.metachanged");
         iF.addAction("com.sonyericsson.music.metachanged");
@@ -175,7 +171,7 @@ public class ListnApplication extends Application implements GoogleApiClient.Con
         iF.addAction("com.andrew.apollo.metachanged");
         iF.addAction("com.spotify.music.playbackstatechanged");
 
-        registerReceiver(mReceiver, iF);
+        //registerReceiver(mReceiver, iF);
     }
 
 
@@ -220,50 +216,4 @@ public class ListnApplication extends Application implements GoogleApiClient.Con
         });
 
     }
-
-    private String mAlbumImage;
-    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
-        private EventBus bus = EventBus.getDefault();
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-
-            final boolean playing = intent.getBooleanExtra("playing", false);
-
-            String id = intent.getStringExtra("id").split(":")[2];
-            Log.d(TAG, "URI:" + intent.getStringExtra("id"));
-            SpotifyUtils.getSpotifyApi().getService().getTrack(id, new Callback<kaaes.spotify.webapi.android.models.Track>() {
-                @Override
-                public void success(kaaes.spotify.webapi.android.models.Track track, Response response) {
-                    SharedPreferences.Editor editor = getSharedPreferences("ListnApp", MODE_PRIVATE).edit();
-                    editor.putString(CURRENT_TRACK, track.name);
-                    editor.putString(CURRENT_ARTIST, track.artists.get(0).name);
-                    editor.putBoolean(CURRENT_PLAYING, playing);
-                    editor.putString(CURRENT_ALBUM, track.album.images.get(0).url);
-                    editor.commit();
-
-                    bus.post(new PlayingTrackUpdateEvent());
-                }
-
-                @Override
-                public void failure(RetrofitError error) {
-
-                }
-            });
-
-            UserUpdate mUserUpdate = new UserUpdate();
-
-
-            sUserService.updateUsers("lala", mUserUpdate, new WoloxCallback<Response>() {
-
-                @Override
-                public void success(Response o, Response response) {
-                    Log.d(TAG, "User Updated");
-                }
-            });
-
-
-
-        }
-    };
 }
