@@ -46,6 +46,7 @@ public class MainActivity extends ListnActivity  {
     private ImageView mAlbumImageView;
     private View mOffAirView;
     private View mOnAireView;
+    private View mTurnOnButton;
 
     @Override
     protected int layout() {
@@ -61,6 +62,7 @@ public class MainActivity extends ListnActivity  {
         mAlbumImageView = (ImageView) findViewById(R.id.home_album_image);
         mOffAirView = findViewById(R.id.home_offair_view);
         mOnAireView = findViewById(R.id.home_onair_view);
+        mTurnOnButton = findViewById(R.id.home_turnon_spotify);
     }
 
     @Override
@@ -69,6 +71,13 @@ public class MainActivity extends ListnActivity  {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ListnersActivity.class);
+                startActivity(intent);
+            }
+        });
+        mTurnOnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = getPackageManager().getLaunchIntentForPackage("com.spotify.music");
                 startActivity(intent);
             }
         });
