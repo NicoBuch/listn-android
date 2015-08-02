@@ -36,6 +36,7 @@
                 app:textWeight="bold"/>
 
             <com.devspark.robototextview.widget.RobotoTextView
+                android:id="@+id/likes_count_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="150"
@@ -47,6 +48,7 @@
         </LinearLayout>
 
        <com.devspark.robototextview.widget.RobotoTextView
+           android:id="@+id/track_name_text_view"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:text="Beat it - Michael Jackson"
@@ -56,6 +58,7 @@
            android:layout_marginBottom="4dp"/>
 
         <com.devspark.robototextview.widget.RobotoTextView
+            android:id="@+id/distance_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2 mts Away"
