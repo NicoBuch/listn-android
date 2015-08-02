@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.spotify.sdk.android.player.Config;
@@ -14,6 +15,7 @@ import com.spotify.sdk.android.player.Player;
 import com.spotify.sdk.android.player.PlayerState;
 import com.spotify.sdk.android.player.PlayerStateCallback;
 import com.spotify.sdk.android.player.Spotify;
+import com.squareup.picasso.Picasso;
 
 import ar.com.wolox.android.Configuration;
 import ar.com.wolox.android.ListnApplication;
@@ -40,6 +42,7 @@ public class MainActivity extends ListnActivity implements Player.Initialization
     private static String TAG = "MainActivity";
     private TextView mTrackName;
     private TextView mTrackArtist;
+    private ImageView mAlbumImageView;
 
     @Override
     protected int layout() {
@@ -52,6 +55,7 @@ public class MainActivity extends ListnActivity implements Player.Initialization
         //mNameText = (TextView) findViewById(R.id.text_name_me);
         mTrackName = (TextView) findViewById(R.id.track_name);
         mTrackArtist = (TextView) findViewById(R.id.track_artist);
+        mAlbumImageView = (ImageView) findViewById(R.id.home_album_image);
     }
 
     @Override
@@ -84,6 +88,12 @@ public class MainActivity extends ListnActivity implements Player.Initialization
         //Spotify.getPlayer(config, ListnApplication.getInstance(), this);
         mTrackName.setText(ListnApplication.getInstance().getmTrack());
         mTrackArtist.setText(ListnApplication.getInstance().getmArtist());
+        Picasso.with(getApplicationContext()).load("http://i.forbesimg.com/media/lists/companies/google_416x416.jpg")
+                .error(R.drawable.home_like_button_on)
+                .noFade()
+                .into(mAlbumImageView);
+
+
     }
 
     @Override
