@@ -34,7 +34,7 @@ public class MusicReceiver extends BroadcastReceiver {
         String id = intent.getStringExtra("id");
         if (id != null) {
             id = id.split(":")[2];
-            SpotifyUtils.getSpotifyApi().getService().getTrack(id, new Callback<Track>() {
+            SpotifyUtils.getSpotifyApi().getService().getTrack(id, new WoloxCallback<Track>() {
                 @Override
                 public void success(kaaes.spotify.webapi.android.models.Track track, Response response) {
                     PreferencesUtils.setCurrentMusicInfo(
@@ -44,25 +44,28 @@ public class MusicReceiver extends BroadcastReceiver {
                             playing
                     );
 
+                    UserUpdate mUserUpdate = new UserUpdate();
+                    ar.com.wolox.android.model.Track mTrack = new ar.com.wolox.android.model.Track();
+                    mTrack.setArtist(PreferencesUtils.getCurrentArtist());
+                    mTrack.setId(track.id);
+                    mTrack.setName(track.name);
+                    mTrack.setPlaying(playing);
+                    mUserUpdate.setTrack(mTrack);
+
+                    ListnApplication.getsUserService().updateUsers(PreferencesUtils.getSpotifyUserId(), mUserUpdate, new WoloxCallback<Response>() {
+
+                        @Override
+                        public void success(Response o, Response response) {
+                            Log.d(TAG, "User Updated");
+                        }
+                    });
+
                     bus.post(new PlayingTrackUpdateEvent());
                 }
 
-                @Override
-                public void failure(RetrofitError error) {
-
-                }
             });
 
-            UserUpdate mUserUpdate = new UserUpdate();
 
-
-            ListnApplication.getsUserService().updateUsers("lala", mUserUpdate, new WoloxCallback<Response>() {
-
-                @Override
-                public void success(Response o, Response response) {
-                    Log.d(TAG, "User Updated");
-                }
-            });
         }
 
 

@@ -15,6 +15,7 @@ public class PreferencesUtils {
     private static final String CURRENT_ARTIST = "artist";
     private static final String CURRENT_ALBUM = "album";
     private static final String CURRENT_PLAYING = "playing";
+    private static final String SPOTIFY_USER_ID = "spotifyUserId";
 
     public static void setAccessToken(String accessToken) {
         getSharedPreferences().edit()
@@ -54,4 +55,14 @@ public class PreferencesUtils {
     public static Boolean getCurrentPlaying() {
         return getSharedPreferences().getBoolean(CURRENT_PLAYING, false);
     }
+    public static String getSpotifyUserId(){
+        return getSharedPreferences().getString(SPOTIFY_USER_ID, null);
+    }
+
+    public static void setSpotifyUserId(String spotifyUserId) {
+        getSharedPreferences().edit()
+                .putString(SPOTIFY_USER_ID, spotifyUserId)
+                .commit();
+    }
+
 }
