@@ -44,6 +44,8 @@ public class MainActivity extends ListnActivity implements Player.Initialization
     private TextView mTrackName;
     private TextView mTrackArtist;
     private ImageView mAlbumImageView;
+    private View mOffAirView;
+    private View mOnAireView;
 
     @Override
     protected int layout() {
@@ -57,6 +59,8 @@ public class MainActivity extends ListnActivity implements Player.Initialization
         mTrackName = (TextView) findViewById(R.id.track_name);
         mTrackArtist = (TextView) findViewById(R.id.track_artist);
         mAlbumImageView = (ImageView) findViewById(R.id.home_album_image);
+        mOffAirView = findViewById(R.id.home_offair_view);
+        mOnAireView = findViewById(R.id.home_onair_view);
     }
 
     @Override
@@ -88,17 +92,24 @@ public class MainActivity extends ListnActivity implements Player.Initialization
         //Config config = new Config(this, PreferencesUtils.getAccessToken(), Configuration.CLIENT_ID);
         //Spotify.getPlayer(config, ListnApplication.getInstance(), this);
         SharedPreferences prefs = getSharedPreferences("ListnApp", MODE_PRIVATE);
-        mTrackName.setText(prefs.getString(ListnApplication.CURRENT_TRACK, ""));
-        mTrackArtist.setText(prefs.getString(ListnApplication.CURRENT_ARTIST, ""));
-        String album = prefs.getString(ListnApplication.CURRENT_ALBUM, "");
-        if (album != "") {
-            Picasso.with(getApplicationContext()).load(album)
-                    .error(R.drawable.home_like_button_on)
-                    .noFade()
-                    .into(mAlbumImageView);
+        Boolean playing = prefs.getBoolean(ListnApplication.CURRENT_PLAYING, false);
+        if (playing) {
+            mOnAireView.setVisibility(View.VISIBLE);
+            mOffAirView.setVisibility(View.GONE);
+            mTrackName.setText(prefs.getString(ListnApplication.CURRENT_TRACK, ""));
+            mTrackArtist.setText(prefs.getString(ListnApplication.CURRENT_ARTIST, ""));
+            String album = prefs.getString(ListnApplication.CURRENT_ALBUM, "");
+            if (album != "") {
+                Picasso.with(getApplicationContext()).load(album)
+                        .error(R.drawable.home_like_button_on)
+                        .noFade()
+                        .into(mAlbumImageView);
+            }
+        } else {
+            mOffAirView.setVisibility(View.VISIBLE);
+            mOnAireView.setVisibility(View.GONE);
+            mAlbumImageView.setImageDrawable(null);
         }
-
-
 
     }
 
@@ -155,6 +166,8 @@ public class MainActivity extends ListnActivity implements Player.Initialization
     public void onEvent(PlayingTrackUpdateEvent event){
         SharedPreferences prefs = getSharedPreferences("ListnApp", MODE_PRIVATE);
         if(prefs.getBoolean(ListnApplication.CURRENT_PLAYING, false)) {
+            mOnAireView.setVisibility(View.VISIBLE);
+            mOffAirView.setVisibility(View.GONE);
             mTrackArtist.setText(prefs.getString(ListnApplication.CURRENT_ARTIST, ""));
             mTrackName.setText(prefs.getString(ListnApplication.CURRENT_TRACK, ""));
             String album = prefs.getString(ListnApplication.CURRENT_ALBUM, "");
@@ -164,11 +177,11 @@ public class MainActivity extends ListnActivity implements Player.Initialization
                         .noFade()
                         .into(mAlbumImageView);
             }
-
         }
         else{
-            mTrackArtist.setText("");
-            mTrackName.setText("CURRENTLY NOT PLAYING ANYTHING");
+            mOffAirView.setVisibility(View.VISIBLE);
+            mOnAireView.setVisibility(View.GONE);
+            mAlbumImageView.setImageDrawable(null);
         }
     }
 
