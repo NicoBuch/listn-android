@@ -25,4 +25,12 @@ public class Track {
     public void setPlaying(boolean playing) {
         this.playing = playing;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getArtist() {
+        return artist;
+    }
 }
