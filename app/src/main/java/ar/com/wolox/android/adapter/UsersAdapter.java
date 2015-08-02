@@ -77,19 +77,13 @@ public class UsersAdapter extends BaseAdapter {
             item.textViewLikesCount = (TextView) convertView.findViewById(R.id.likes_count_text_view);
             item.imageViewUser = (ImageView) convertView.findViewById(R.id.image_user);
             item.imageStartMusic = (ImageView) convertView.findViewById(R.id.start_music_image);
-
-
-
         }
         else {
-
             item = (ViewHolderItem) convertView.getTag();
-
         }
 
         final User mUser = getItem(position);
 
-        item.textViewUsername.setText(mUser.getName());
         item.textViewDistance.setText(mUser.getDistance() + " Away");
         if (mUser.getTrack() != null) {
             item.textViewTrackname.setText(mUser.getTrack().getName() + " - " + mUser.getTrack().getArtist());
@@ -114,6 +108,7 @@ public class UsersAdapter extends BaseAdapter {
                         .error(R.drawable.home_like_button_on)
                         .noFade()
                         .into(item.imageViewUser);
+                item.textViewUsername.setText(userPublic.display_name + " - ");
 
             }
         });
