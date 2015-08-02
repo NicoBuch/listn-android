@@ -8,13 +8,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="visible"
-
+        android:background="#4d4d4d"
         >
         <ImageView
             android:id="@+id/home_album_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_chat"
+            android:scaleType="centerCrop"
             />
     </FrameLayout>
     
@@ -82,6 +82,62 @@
             </FrameLayout>
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/home_offair_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal"
+                android:background="@drawable/home_offair_button"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Off Air"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="8dp"/>
+            </LinearLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/home_nomusic"
+                android:layout_marginTop="56dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="You must share your music in order to connect with people"
+                android:textStyle="normal"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="16dp"
+                />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/home_turn_button"
+                android:layout_marginTop="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TURN ON SPOTIFY"
+                    android:textSize="22sp"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"/>
+            </FrameLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/home_onair_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -93,6 +149,7 @@
                 android:layout_height="42dp"
                 android:orientation="horizontal"
                 android:background="@drawable/home_onair_button"
+                android:layout_marginTop="24dp"
                 android:gravity="center">
                 <ImageView
                     android:layout_width="wrap_content"
@@ -105,36 +162,16 @@
                     android:textAllCaps="true"
                     android:textColor="@color/white"
                     android:textStyle="bold"
-                    android:textSize="27sp"
+                    android:textSize="20sp"
                     android:layout_marginLeft="8dp"/>
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="42dp"
-                android:orientation="horizontal"
-                android:background="@drawable/home_offair_button"
-                android:gravity="center"
-                android:visibility="gone">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/home_onair"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Off Air"
-                    android:textAllCaps="true"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textSize="27sp"
-                    android:layout_marginLeft="8dp"/>
-            </LinearLayout>
+
             <TextView
                 android:id="@+id/track_artist"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Pompey"
-                android:textSize="23sp"
+                android:textSize="15sp"
                 android:textColor="@color/black"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="4dp"
@@ -145,11 +182,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Bastille"
-                android:textSize="23sp"
+                android:textSize="15sp"
                 android:textColor="@color/black"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="4dp"
-                app:textWeight="medium"
+                app:textWeight="light"
                 />
             <com.devspark.robototextview.widget.RobotoTextView
                 android:layout_width="wrap_content"
