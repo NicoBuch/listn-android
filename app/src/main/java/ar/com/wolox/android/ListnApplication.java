@@ -7,6 +7,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.location.Location;
 import android.media.AudioManager;
 import android.media.RemoteControlClient;
@@ -54,6 +55,10 @@ import retrofit.converter.GsonConverter;
 public class ListnApplication extends Application implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
     private static final String TAG = "ListnApplication";
+    public static final String CURRENT_TRACK = "track";
+    public static final String CURRENT_ARTIST = "artist";
+    public static final String CURRENT_ALBUM = "album";
+    public static final String CURRENT_PLAYING = "playing";
 
     private static ListnApplication sApplication;
     private static RequestInterceptor sSecureRequestInterceptor;
@@ -110,14 +115,6 @@ public class ListnApplication extends Application implements GoogleApiClient.Con
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
         Log.e(TAG, "CONNECTION FAILED");
-    }
-
-    public String getmArtist() {
-        return mArtist;
-    }
-
-    public String getmTrack() {
-        return mTrack;
     }
 
     public static class DateDeserializer implements JsonDeserializer<Date> {
@@ -224,27 +221,38 @@ public class ListnApplication extends Application implements GoogleApiClient.Con
 
     }
 
-    private String mTrack;
-    private String mArtist;
+    private String mAlbumImage;
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
         private EventBus bus = EventBus.getDefault();
 
         @Override
         public void onReceive(Context context, Intent intent) {
 
-            String track = intent.getStringExtra("track");
-            String artist = intent.getStringExtra("artist");
-            boolean playing = intent.getBooleanExtra("playing", false);
+            final boolean playing = intent.getBooleanExtra("playing", false);
 
             String id = intent.getStringExtra("id").split(":")[2];
+            SpotifyUtils.getSpotifyApi().getService().getTrack(id, new Callback<kaaes.spotify.webapi.android.models.Track>() {
+                @Override
+                public void success(kaaes.spotify.webapi.android.models.Track track, Response response) {
+                    SharedPreferences.Editor editor = getSharedPreferences("ListnApp", MODE_PRIVATE).edit();
+                    editor.putString(CURRENT_TRACK, track.name);
+                    editor.putString(CURRENT_ARTIST, track.artists.get(0).name);
+                    editor.putBoolean(CURRENT_PLAYING, playing);
+                    editor.putString(CURRENT_ALBUM, track.album.images.get(0).url);
+                    editor.commit();
 
-            Track mTrack = new Track();
-            mTrack.setId(id);
-            mTrack.setName(track);
-            mTrack.setArtist(artist);
-            mTrack.setPlaying(playing);
+                    bus.post(new PlayingTrackUpdateEvent());
+                }
+
+                @Override
+                public void failure(RetrofitError error) {
+
+                }
+            });
+
             UserUpdate mUserUpdate = new UserUpdate();
-            mUserUpdate.setTrack(mTrack);
+
+
 
             sUserService.updateUsers("lala", mUserUpdate, new WoloxCallback<Response>() {
 
@@ -254,7 +262,7 @@ public class ListnApplication extends Application implements GoogleApiClient.Con
                 }
             });
 
-            bus.post(new PlayingTrackUpdateEvent(artist, track, playing));
+
 
         }
     };

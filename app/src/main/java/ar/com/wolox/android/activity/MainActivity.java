@@ -2,6 +2,7 @@ package ar.com.wolox.android.activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -86,12 +87,17 @@ public class MainActivity extends ListnActivity implements Player.Initialization
         });
         //Config config = new Config(this, PreferencesUtils.getAccessToken(), Configuration.CLIENT_ID);
         //Spotify.getPlayer(config, ListnApplication.getInstance(), this);
-        mTrackName.setText(ListnApplication.getInstance().getmTrack());
-        mTrackArtist.setText(ListnApplication.getInstance().getmArtist());
-        Picasso.with(getApplicationContext()).load("http://i.forbesimg.com/media/lists/companies/google_416x416.jpg")
-                .error(R.drawable.home_like_button_on)
-                .noFade()
-                .into(mAlbumImageView);
+        SharedPreferences prefs = getSharedPreferences("ListnApp", MODE_PRIVATE);
+        mTrackName.setText(prefs.getString(ListnApplication.CURRENT_TRACK, ""));
+        mTrackArtist.setText(prefs.getString(ListnApplication.CURRENT_ARTIST, ""));
+        String album = prefs.getString(ListnApplication.CURRENT_ALBUM, "");
+        if (album != "") {
+            Picasso.with(getApplicationContext()).load(album)
+                    .error(R.drawable.home_like_button_on)
+                    .noFade()
+                    .into(mAlbumImageView);
+        }
+
 
 
     }
@@ -147,9 +153,18 @@ public class MainActivity extends ListnActivity implements Player.Initialization
     }
 
     public void onEvent(PlayingTrackUpdateEvent event){
-        if(event.isPlaying()) {
-            mTrackArtist.setText(event.getArtist());
-            mTrackName.setText(event.getTrack());
+        SharedPreferences prefs = getSharedPreferences("ListnApp", MODE_PRIVATE);
+        if(prefs.getBoolean(ListnApplication.CURRENT_PLAYING, false)) {
+            mTrackArtist.setText(prefs.getString(ListnApplication.CURRENT_ARTIST, ""));
+            mTrackName.setText(prefs.getString(ListnApplication.CURRENT_TRACK, ""));
+            String album = prefs.getString(ListnApplication.CURRENT_ALBUM, "");
+            if (album != "") {
+                Picasso.with(getApplicationContext()).load(album)
+                        .error(R.drawable.home_like_button_on)
+                        .noFade()
+                        .into(mAlbumImageView);
+            }
+
         }
         else{
             mTrackArtist.setText("");
