@@ -125,6 +125,11 @@ public class MainActivity extends ListnActivity  {
 
     }
 
+    @Override
+    protected void onDestroy() {
+        bus.unregister(this);
+        super.onDestroy();
+    }
 
     public void onEvent(PlayingTrackUpdateEvent event){
         SharedPreferences prefs = getSharedPreferences("ListnApp", MODE_PRIVATE);
