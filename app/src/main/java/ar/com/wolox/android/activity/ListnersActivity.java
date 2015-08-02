@@ -1,6 +1,7 @@
 package ar.com.wolox.android.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -33,6 +34,7 @@ public class ListnersActivity extends ListnActivity implements UsersAdapter.User
     private ListView mUsersListView;
     private List<User> mUsers = new LinkedList<>();
     private Player mPlayer;
+    private static final String SPOTIFY_USER_ID = "id";
 
     @Override
     protected int layout() {
@@ -54,7 +56,8 @@ public class ListnersActivity extends ListnActivity implements UsersAdapter.User
 
     @Override
     protected void populate() {
-        ListnApplication.getInstance().getsUserService().getUsers("lala", new WoloxCallback<List<User>>() {
+
+        ListnApplication.getInstance().getsUserService().getUsers(PreferencesUtils.getSpotifyUserId(), new WoloxCallback<List<User>>() {
             @Override
             public void success(List<User> users, Response response) {
                 mUsers.addAll(users);

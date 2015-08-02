@@ -42,6 +42,7 @@ import ar.com.wolox.android.model.Track;
 import ar.com.wolox.android.model.UserUpdate;
 import ar.com.wolox.android.service.UserService;
 import ar.com.wolox.android.service.interceptor.SecuredRequestInterceptor;
+import ar.com.wolox.android.utils.PreferencesUtils;
 import ar.com.wolox.android.utils.SpotifyUtils;
 import de.greenrobot.event.EventBus;
 
@@ -55,7 +56,6 @@ import retrofit.converter.GsonConverter;
 public class ListnApplication extends Application implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
     private static final String TAG = "ListnApplication";
-
 
     private static ListnApplication sApplication;
     private static RequestInterceptor sSecureRequestInterceptor;
@@ -202,12 +202,17 @@ public class ListnApplication extends Application implements GoogleApiClient.Con
 
     @Override
     public void onLocationChanged(Location location) {
+
+        if(PreferencesUtils.getSpotifyUserId() == null){
+            return;
+        }
         mCurrentLocation = location;
         mLastUpdateTime = DateFormat.getTimeInstance().format(new Date());
         UserUpdate mUserUpdate = new UserUpdate();
         mUserUpdate.setLatitude(location.getLatitude());
         mUserUpdate.setLongitude(location.getLongitude());
-        sUserService.updateUsers("lala", mUserUpdate, new WoloxCallback<Response>(){
+
+        sUserService.updateUsers(PreferencesUtils.getSpotifyUserId(), mUserUpdate, new WoloxCallback<Response>(){
 
             @Override
             public void success(Response o, Response response) {
