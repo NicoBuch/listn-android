@@ -33,4 +33,8 @@ public class Track {
     public String getArtist() {
         return artist;
     }
+
+    public String getId() {
+        return id;
+    }
 }

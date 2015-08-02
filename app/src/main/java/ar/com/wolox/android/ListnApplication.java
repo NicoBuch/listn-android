@@ -231,6 +231,7 @@ public class ListnApplication extends Application implements GoogleApiClient.Con
             final boolean playing = intent.getBooleanExtra("playing", false);
 
             String id = intent.getStringExtra("id").split(":")[2];
+            Log.d(TAG, "URI:" + intent.getStringExtra("id"));
             SpotifyUtils.getSpotifyApi().getService().getTrack(id, new Callback<kaaes.spotify.webapi.android.models.Track>() {
                 @Override
                 public void success(kaaes.spotify.webapi.android.models.Track track, Response response) {
@@ -251,7 +252,6 @@ public class ListnApplication extends Application implements GoogleApiClient.Con
             });
 
             UserUpdate mUserUpdate = new UserUpdate();
-
 
 
             sUserService.updateUsers("lala", mUserUpdate, new WoloxCallback<Response>() {
