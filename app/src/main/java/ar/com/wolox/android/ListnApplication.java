@@ -1,9 +1,18 @@
 package ar.com.wolox.android;
 
 import android.app.Application;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.location.Location;
+import android.media.AudioManager;
+import android.media.RemoteControlClient;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -26,7 +35,9 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.TimeZone;
 
+import ar.com.wolox.android.event.PlayingTrackUpdateEvent;
 import ar.com.wolox.android.service.interceptor.SecuredRequestInterceptor;
+import de.greenrobot.event.EventBus;
 import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
 import retrofit.converter.GsonConverter;
@@ -85,6 +96,14 @@ public class ListnApplication extends Application implements GoogleApiClient.Con
         Log.e(TAG, "CONNECTION FAILED");
     }
 
+    public String getmArtist() {
+        return mArtist;
+    }
+
+    public String getmTrack() {
+        return mTrack;
+    }
+
     public static class DateDeserializer implements JsonDeserializer<Date> {
         @Override
         public Date deserialize(JsonElement element, Type arg1, JsonDeserializationContext arg2)
@@ -121,6 +140,29 @@ public class ListnApplication extends Application implements GoogleApiClient.Con
         mGoogleApiClient.connect();
         createLocationRequest();
         sApplication = this;
+        registerMediaReceiver();
+    }
+
+    private void registerMediaReceiver() {
+        IntentFilter iF = new IntentFilter();
+        iF.addAction("com.android.music.metachanged");
+
+        iF.addAction("com.htc.music.metachanged");
+
+        iF.addAction("fm.last.android.metachanged");
+        iF.addAction("com.sec.android.app.music.metachanged");
+        iF.addAction("com.nullsoft.winamp.metachanged");
+        iF.addAction("com.amazon.mp3.metachanged");
+        iF.addAction("com.spotify.music.metadatachanged");
+        iF.addAction("com.miui.player.metachanged");
+        iF.addAction("com.real.IMP.metachanged");
+        iF.addAction("com.sonyericsson.music.metachanged");
+        iF.addAction("com.rdio.android.metachanged");
+        iF.addAction("com.samsung.sec.android.MusicPlayer.metachanged");
+        iF.addAction("com.andrew.apollo.metachanged");
+        iF.addAction("com.spotify.music.playbackstatechanged");
+
+        registerReceiver(mReceiver, iF);
     }
 
 
@@ -154,4 +196,21 @@ public class ListnApplication extends Application implements GoogleApiClient.Con
         mCurrentLocation = location;
         mLastUpdateTime = DateFormat.getTimeInstance().format(new Date());
     }
+
+    private String mTrack;
+    private String mArtist;
+    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        private EventBus bus = EventBus.getDefault();
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            // TODO: Tirar a la base de datos el track actual
+            String track = intent.getStringExtra("track");
+            String artist = intent.getStringExtra("artist");
+            boolean playing = intent.getBooleanExtra("playing", false);
+            bus.post(new PlayingTrackUpdateEvent(artist, track, playing));
+
+        }
+    };
 }

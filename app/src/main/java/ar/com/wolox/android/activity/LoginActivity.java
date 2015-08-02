@@ -68,6 +68,8 @@ public class LoginActivity extends Activity implements
 
     private static final int REQUEST_CODE = 1337;
 
+    private static final String TAG = "LoginActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,6 +94,7 @@ public class LoginActivity extends Activity implements
         if (requestCode == REQUEST_CODE) {
             AuthenticationResponse response = AuthenticationClient.getResponse(resultCode, intent);
             if (response.getType() == AuthenticationResponse.Type.TOKEN) {
+                Log.d(TAG, "Expires in: " +  response.getExpiresIn());
                 PreferencesUtils.setAccessToken(response.getAccessToken());
                 Intent mainIntent = new Intent(this, MainActivity.class);
                 startActivity(mainIntent);

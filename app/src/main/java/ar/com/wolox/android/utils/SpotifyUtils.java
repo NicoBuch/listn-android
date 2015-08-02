@@ -10,9 +10,8 @@ public class SpotifyUtils {
     public static SpotifyApi getSpotifyApi(){
         if(sApi == null){
             sApi = new SpotifyApi();
-            sApi.setAccessToken(PreferencesUtils.getAccessToken());
         }
-
+        sApi.setAccessToken(PreferencesUtils.getAccessToken());
         return sApi;
     }
 }
