@@ -7,11 +7,11 @@ public class Track {
 
     String name;
     String artist;
-    String id;
+    String spotifyId;
     boolean playing;
 
     public void setId(String id){
-        this.id = id;
+        this.spotifyId = id;
     }
 
     public void setName(String name) {
@@ -35,6 +35,6 @@ public class Track {
     }
 
     public String getId() {
-        return id;
+        return spotifyId;
     }
 }
