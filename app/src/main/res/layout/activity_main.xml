@@ -1,58 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
-    android:weightSum="1">
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:layout_gravity="center_horizontal" />
-
-    <Button
+              android:layout_height="match_parent">
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="buscar"
-        android:id="@+id/button_search" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText" />
-
-    <Button
+        android:layout_height="match_parent"
+        android:background="@color/black">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_chat"/>
+    </FrameLayout>
+    
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="listns"
-        android:id="@+id/button3"
-        android:layout_gravity="center_horizontal" />
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_background"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
+        >
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:layout_marginBottom="48dp">
+            <FrameLayout
+                android:id="@+id/button_search"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/circle_button_blue">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/home_search"
+                    android:layout_gravity="center"/>
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/circle_button_green">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/home_chat"
+                    android:layout_gravity="center"/>
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/circle_button_violet">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/home_chat"
+                    android:layout_gravity="center"/>
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/circle_button_red">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/home_listnrs"
+                    android:layout_gravity="center"/>
+            </FrameLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="16dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:orientation="horizontal"
+                android:background="@drawable/home_onair_button"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/home_onair"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="On air"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="27sp"
+                    android:layout_marginLeft="8dp"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/track_artist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pompey"
+                android:textSize="23sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                app:textWeight="medium"
+                />
+            <TextView
+                android:id="@+id/track_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bastille"
+                android:textSize="23sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                app:textWeight="medium"
+                />
+            <com.devspark.robototextview.widget.RobotoTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2:30"
+                android:textStyle="normal"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                app:textWeight="light"
+                />
 
-    <Button
-        android:layout_width="386dp"
-        android:layout_height="wrap_content"
-        android:text="chats"
-        android:id="@+id/button2"
-        android:layout_gravity="right" />
+        </LinearLayout>
+    </RelativeLayout>
 
-    <Button
-        android:layout_width="425dp"
-        android:layout_height="wrap_content"
-        android:text="listners"
-        android:id="@+id/button4" />
-
-    <TextView
-        android:id="@+id/text_name_me"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/track_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/track_artist"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-</LinearLayout>
+</FrameLayout>

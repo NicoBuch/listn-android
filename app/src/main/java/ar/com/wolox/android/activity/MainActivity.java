@@ -1,5 +1,4 @@
 package ar.com.wolox.android.activity;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -7,6 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.spotify.sdk.android.player.Config;
@@ -34,7 +34,8 @@ public class MainActivity extends ListnActivity implements Player.Initialization
 
     private EventBus bus = EventBus.getDefault();
 
-    private Button mSearchButton;
+    private View mSearchButton;
+
     private TextView mNameText;
     private static String TAG = "MainActivity";
     private TextView mTrackName;
@@ -47,8 +48,8 @@ public class MainActivity extends ListnActivity implements Player.Initialization
 
     @Override
     protected void setUi() {
-        mSearchButton = (Button) findViewById(R.id.button_search);
-        mNameText = (TextView) findViewById(R.id.text_name_me);
+        mSearchButton = findViewById(R.id.button_search);
+        //mNameText = (TextView) findViewById(R.id.text_name_me);
         mTrackName = (TextView) findViewById(R.id.track_name);
         mTrackArtist = (TextView) findViewById(R.id.track_artist);
     }
@@ -71,12 +72,12 @@ public class MainActivity extends ListnActivity implements Player.Initialization
         service.getMe(new Callback<UserPrivate>() {
             @Override
             public void success(UserPrivate userPrivate, Response response) {
-                mNameText.setText(userPrivate.display_name);
+                //mNameText.setText(userPrivate.display_name);
             }
 
             @Override
             public void failure(RetrofitError error) {
-                mNameText.setText("NO FUNCIONO LA MIERDA ESTA");
+                //mNameText.setText("NO FUNCIONO LA MIERDA ESTA");
             }
         });
         //Config config = new Config(this, PreferencesUtils.getAccessToken(), Configuration.CLIENT_ID);

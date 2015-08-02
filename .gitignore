@@ -2,3 +2,4 @@
 .gradle/*
 *.bin
 .gitignore~
+build/*

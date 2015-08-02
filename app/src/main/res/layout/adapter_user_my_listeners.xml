@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/list_item_height"
+    android:layout_height="@dimen/list_chat_height"
     android:paddingRight="16dp"
     android:paddingLeft="16dp"
     android:layout_marginTop="16dp"
@@ -13,17 +13,19 @@
         android:layout_height="@dimen/image_size"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="16dp"
+        android:layout_centerVertical="true"
         />
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_toRightOf="@+id/image_user"
         android:orientation="vertical"
         android:layout_gravity="center">
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
             <com.devspark.robototextview.widget.RobotoTextView
                 android:id="@+id/username_text_view"
                 android:layout_width="wrap_content"
@@ -45,28 +47,6 @@
                 android:layout_marginBottom="4dp"
                 app:textWeight="medium"/>
         </LinearLayout>
-
-       <com.devspark.robototextview.widget.RobotoTextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="Beat it - Michael Jackson"
-           android:textSize="14sp"
-           android:textColor="@color/black"
-           android:layout_marginTop="4dp"
-           android:layout_marginBottom="4dp"/>
-
-        <com.devspark.robototextview.widget.RobotoTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2 mts Away"
-            android:textSize="14sp"
-            android:textColor="@color/black"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            app:textWeight="light"/>
-
-
-
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -80,22 +60,10 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_nowplaying"
+            android:src="@drawable/ic_like_on"
             android:layout_marginRight="8dp"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_pause"
-            android:layout_marginLeft="8dp"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_play"
-            android:visibility="gone"
-            android:layout_marginLeft="8dp"/>
+
     </LinearLayout>
-
-
 
 
 </RelativeLayout>

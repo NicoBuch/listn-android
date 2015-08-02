@@ -214,10 +214,10 @@ public class ListnApplication extends Application implements GoogleApiClient.Con
         UserUpdate mUserUpdate = new UserUpdate();
         mUserUpdate.setLatitude(location.getLatitude());
         mUserUpdate.setLongitude(location.getLongitude());
-        sUserService.updateUsers("lala", mUserUpdate, new WoloxCallback(){
+        sUserService.updateUsers("lala", mUserUpdate, new WoloxCallback<Response>(){
 
             @Override
-            public void success(Object o, Response response) {
+            public void success(Response o, Response response) {
                 Log.d(TAG, "User Updated");
             }
         });
@@ -246,10 +246,10 @@ public class ListnApplication extends Application implements GoogleApiClient.Con
             UserUpdate mUserUpdate = new UserUpdate();
             mUserUpdate.setTrack(mTrack);
 
-            sUserService.updateUsers("lala", mUserUpdate, new WoloxCallback() {
+            sUserService.updateUsers("lala", mUserUpdate, new WoloxCallback<Response>() {
 
                 @Override
-                public void success(Object o, Response response) {
+                public void success(Response o, Response response) {
                     Log.d(TAG, "User Updated");
                 }
             });
