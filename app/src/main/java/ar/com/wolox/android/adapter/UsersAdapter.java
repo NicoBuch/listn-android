@@ -51,8 +51,6 @@ public class UsersAdapter extends BaseAdapter {
 
             item = new ViewHolderItem();
 
-
-
             item.textViewItem = (TextView) convertView.findViewById(R.id.text_name);
             convertView.setTag(item);
 

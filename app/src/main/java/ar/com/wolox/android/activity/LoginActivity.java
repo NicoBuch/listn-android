@@ -52,6 +52,13 @@ import ar.com.wolox.android.Configuration;
 import ar.com.wolox.android.ListnApplication;
 import ar.com.wolox.android.R;
 import ar.com.wolox.android.utils.PreferencesUtils;
+import ar.com.wolox.android.utils.SpotifyUtils;
+import kaaes.spotify.webapi.android.SpotifyApi;
+import kaaes.spotify.webapi.android.SpotifyService;
+import kaaes.spotify.webapi.android.models.UserPrivate;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 public class LoginActivity extends Activity implements
         PlayerNotificationCallback, ConnectionStateCallback{
@@ -60,6 +67,8 @@ public class LoginActivity extends Activity implements
     private static final String REDIRECT_URI = "listn-protocol://callback";
 
     private static final int REQUEST_CODE = 1337;
+
+    private static final String TAG = "LoginActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,10 +94,13 @@ public class LoginActivity extends Activity implements
         if (requestCode == REQUEST_CODE) {
             AuthenticationResponse response = AuthenticationClient.getResponse(resultCode, intent);
             if (response.getType() == AuthenticationResponse.Type.TOKEN) {
+                Log.d(TAG, "Expires in: " +  response.getExpiresIn());
                 PreferencesUtils.setAccessToken(response.getAccessToken());
                 Intent mainIntent = new Intent(this, MainActivity.class);
                 startActivity(mainIntent);
                 finish();
+
+
                 // Llamar a la API
                 // success -> SharedPreferences accessToken & intent a MainActivity
             }

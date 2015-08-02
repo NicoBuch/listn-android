@@ -105,6 +105,7 @@
                     android:layout_marginLeft="8dp"/>
             </LinearLayout>
             <TextView
+                android:id="@+id/track_artist"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Pompey"
@@ -115,6 +116,7 @@
                 app:textWeight="medium"
                 />
             <TextView
+                android:id="@+id/track_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Bastille"
@@ -138,6 +140,5 @@
 
         </LinearLayout>
     </RelativeLayout>
-
 
 </FrameLayout>

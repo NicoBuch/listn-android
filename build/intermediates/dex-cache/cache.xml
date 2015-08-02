@@ -37,13 +37,6 @@
         <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-1dec347afbcfa4e894d2f50fb78d1649f7d206f0.jar" />
     </item>
     <item
-        jar="/Users/maria/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.0.0/4c8d1536dba3812cc1592090dc20c47a4ed3c35e/okhttp-2.0.0.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="4c8d1536dba3812cc1592090dc20c47a4ed3c35e">
-        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/okhttp-2.0.0-eebd7b5e7a63d2319af3db82895627a3a7e3139f.jar" />
-    </item>
-    <item
         jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.0.0/jars/libs/internal_impl-22.0.0.jar"
         jumboMode="false"
         revision="22.0.0"
@@ -58,11 +51,11 @@
         <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-c894d22fbd14c73a438f1c7b0eb2d8f3cbe7ea1b.jar" />
     </item>
     <item
-        jar="/Users/maria/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/retrofit/1.8.0/a517f29ed06be2b2879524fcd94b6e9b36e2e0b5/retrofit-1.8.0.jar"
+        jar="/Users/maria/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"
         jumboMode="false"
         revision="22.0.0"
-        sha1="a517f29ed06be2b2879524fcd94b6e9b36e2e0b5">
-        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/retrofit-1.8.0-e1800381a868d21b90603eea54ef7bf5f2d2ed21.jar" />
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/gson-2.3.1-0de85d514788f0cc8900b3c57acdf7fb16cd1e83.jar" />
     </item>
     <item
         jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/se.emilsjolander/stickylistheaders/2.4.1/jars/classes.jar"
@@ -107,6 +100,13 @@
         <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-9299b59d00a217e3396b62f97010c9171787fcf0.jar" />
     </item>
     <item
+        jar="/Users/maria/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/retrofit/1.9.0/a681c044244d9fc375198588297a39ba78028423/retrofit-1.9.0.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="a681c044244d9fc375198588297a39ba78028423">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/retrofit-1.9.0-75097637c2ce62f4767a79209be491f7412fac2b.jar" />
+    </item>
+    <item
         jar="/Users/maria/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp-urlconnection/2.0.0/afe8399d352713b66e597e9670c741d1e60ae923/okhttp-urlconnection-2.0.0.jar"
         jumboMode="false"
         revision="22.0.0"
@@ -142,11 +142,11 @@
         <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/eventbus-2.4.0-d079bf2307a828f4d574abc7a9a3471d1478708a.jar" />
     </item>
     <item
-        jar="/Users/maria/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3/5fc52c41ef0239d1093a1eb7c3697036183677ce/gson-2.3.jar"
+        jar="/Users/maria/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.2.0/959c454243581fdf730abfd4f4745441724bcf2c/okhttp-2.2.0.jar"
         jumboMode="false"
         revision="22.0.0"
-        sha1="5fc52c41ef0239d1093a1eb7c3697036183677ce">
-        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/gson-2.3-66ccdf1cf2e119760cd43ea9bdd1238d658b01cb.jar" />
+        sha1="959c454243581fdf730abfd4f4745441724bcf2c">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/okhttp-2.2.0-8711afea8305a55615fa5fd82dfc7cfc8da264b9.jar" />
     </item>
     <item
         jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/spotify-player-1.0.0-beta10/jars/libs/jnihelpers-1.0.jar"
@@ -198,6 +198,13 @@
         <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-169267e1db937eec8a7421489c28916994502f14.jar" />
     </item>
     <item
+        jar="/Users/maria/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.2.0/c0b52915a48fa91b1b94a28d4a2997bac5f524df/okio-1.2.0.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="c0b52915a48fa91b1b94a28d4a2997bac5f524df">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/okio-1.2.0-c7f9368e4a80a16e9cdbcc3c73d8c598a1649442.jar" />
+    </item>
+    <item
         jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.5.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.0"
@@ -217,13 +224,6 @@
         revision="22.0.0"
         sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
         <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-142c5481219fd4332a0207552ad9979adcbfd020.jar" />
-    </item>
-    <item
-        jar="/Users/maria/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.0.0/2534c458682c73f5b9871131ab3098d3f987ca3/okio-1.0.0.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="02534c458682c73f5b9871131ab3098d3f987ca3">
-        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/okio-1.0.0-9ff201d249fbc3531206fa694b2eec794da29027.jar" />
     </item>
     <item
         jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.5.0/jars/classes.jar"
@@ -252,6 +252,13 @@
         revision="22.0.0"
         sha1="a2736a2c8e3bd1d508baa11851e9a77f62646d08">
         <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-2cb9572dc9e523f97a47b3a779ff2ac7a1e7de3b.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/spotify-web-api-android-0.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="9ec66a561c8c11a6d50f0bb4e406aba5d8283716">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-e3d7b9be34a0444c4b58a740deb9d4fc216bd6b2.jar" />
     </item>
     <item
         jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/libs/internal_impl-22.2.1.jar"
