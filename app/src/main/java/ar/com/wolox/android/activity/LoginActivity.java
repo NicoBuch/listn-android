@@ -60,7 +60,7 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-public class LoginActivity extends Activity implements
+public class LoginActivity extends ListnActivity implements
         PlayerNotificationCallback, ConnectionStateCallback{
 
     // TODO: Replace with your redirect URI
@@ -69,20 +69,44 @@ public class LoginActivity extends Activity implements
     private static final int REQUEST_CODE = 1337;
 
     private static final String TAG = "LoginActivity";
+    private View mSpotifyButton;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+    protected int layout() {
+        return R.layout.activity_login;
+    }
 
-        AuthenticationRequest.Builder builder = new AuthenticationRequest.Builder(
-                Configuration.CLIENT_ID,
-                AuthenticationResponse.Type.TOKEN,
-                REDIRECT_URI);
-        builder.setScopes(new String[]{"user-read-private", "streaming"});
-        AuthenticationRequest request = builder.build();
+    @Override
+    protected void setUi() {
+        mSpotifyButton = findViewById(R.id.login_spotify_button);
+    }
 
-        AuthenticationClient.openLoginActivity(this, REQUEST_CODE, request);
+    @Override
+    protected void setListeners() {
+        final LoginActivity activity = this;
+        mSpotifyButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AuthenticationRequest.Builder builder = new AuthenticationRequest.Builder(
+                        Configuration.CLIENT_ID,
+                        AuthenticationResponse.Type.TOKEN,
+                        REDIRECT_URI);
+                builder.setScopes(new String[]{"user-read-private", "streaming"});
+                AuthenticationRequest request = builder.build();
+
+                AuthenticationClient.openLoginActivity(activity, REQUEST_CODE, request);
+            }
+        });
+    }
+
+    @Override
+    protected void populate() {
+
+    }
+
+    @Override
+    protected void init() {
+
     }
 
 
