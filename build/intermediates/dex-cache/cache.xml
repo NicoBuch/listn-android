@@ -2,179 +2,270 @@
 <items version="2" >
 
     <item
-        jar="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.0.0/jars/libs/internal_impl-22.0.0.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="ba3df4eb0a630d7de294f0e48d3f9267d279b784">
-        <dex dex="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/internal_impl-22.0.0-6a2116198f12e78bf38a379c8a4250cdea479e19.jar" />
-    </item>
-    <item
-        jar="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="ba207be21987c11b37d9f8faa08ed6e722569f30">
-        <dex dex="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-f4d522c966c54708b1276b3d1ad1cdfb1bfe7d94.jar" />
-    </item>
-    <item
-        jar="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="6440e5e5cfe368f9bff3c537fb8988048069cb33">
-        <dex dex="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-efa1770a5e52ef0130d8b29ceb9db8684f5a6099.jar" />
-    </item>
-    <item
-        jar="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/exploded-aar/spotify-player-1.0.0-beta10/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="303cdfb0e82e35c8ee189313e3d0ccc144accdc4">
-        <dex dex="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-fde39c71635f98d36530c0dc331231201cc54ee4.jar" />
-    </item>
-    <item
-        jar="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/exploded-aar/spotify-player-1.0.0-beta10/jars/libs/jnihelpers-1.0.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="863562b367d763d45f9bb44f58a5029007f79555">
-        <dex dex="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/jnihelpers-1.0-19713b5073af33093f504da1cdfc553f81f037dc.jar" />
-    </item>
-    <item
-        jar="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
-        <dex dex="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-e1765b72bed867734928aa8c273932338347530f.jar" />
-    </item>
-    <item
-        jar="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="f44d03c138cb6488fdbaa65e3a7e5878861a56d8">
-        <dex dex="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-06d0f3d603830788159fb47c9df297a3365d808a.jar" />
-    </item>
-    <item
-        jar="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="6836d188602ec5382d1967c58b00960eb8ff8773">
-        <dex dex="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-dbbdf259879cf62cb29f17bb98cd617bfe8d83ac.jar" />
-    </item>
-    <item
-        jar="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="d405025c600055237c171a0bbabaa49d69696573">
-        <dex dex="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-5ebc3bcb905978928bc998c5fd4cfd6333b010a6.jar" />
-    </item>
-    <item
-        jar="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.5.0/jars/classes.jar"
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.5.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.0"
         sha1="8e3a972f28b8bae817e382257ba177a31bcadbbc">
-        <dex dex="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-9e19e55120117549721e1600969a51b48f786322.jar" />
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-bb9a51fd699e14dda6bb20620ac3739806a4a22e.jar" />
     </item>
     <item
-        jar="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="a1372c17fccacca753d3951d3ad820571cbce075">
-        <dex dex="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-c01c7c88006d9a8ca5ff2c63a66965bc76aa8521.jar" />
-    </item>
-    <item
-        jar="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="06a42becc33232ec0ee125161da68c1829c9f8fd">
-        <dex dex="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-cf9e3fc6a7069824a1e006a6308368ea04b2ed2b.jar" />
-    </item>
-    <item
-        jar="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="a78183f30e769a98ab4820794f597763088d3065">
-        <dex dex="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-13f83b7c499b6982d1f30d9523555eaabb349c0b.jar" />
-    </item>
-    <item
-        jar="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/exploded-aar/spotify-auth-1.0.0-beta10/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="a2736a2c8e3bd1d508baa11851e9a77f62646d08">
-        <dex dex="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-8a2c934cd0f61524cb02fe4f288522080730965c.jar" />
-    </item>
-    <item
-        jar="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="a172852a35ff919e85b9b7f14bbc15c5bee25520">
-        <dex dex="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-5358a9f334d20ec009326416c7ba132907678a60.jar" />
-    </item>
-    <item
-        jar="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="f02127a85abd52a2cd526d4c2409f21969f80ee8">
-        <dex dex="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-9c11c153fd75be1ed599db14e94d4bbb7c55bc53.jar" />
-    </item>
-    <item
-        jar="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="272bc5d7063f24bc3a33ea1d318cde8f31f5ec4c">
-        <dex dex="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-796ee794ba6011472633860a4df2064c086eba84.jar" />
-    </item>
-    <item
-        jar="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="8d736fefa22d896e84a268354b3ed48a42663150">
-        <dex dex="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-90779e187b61ed1a689f2d9c58c7ad7c93c94edf.jar" />
-    </item>
-    <item
-        jar="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="02bac2dc792d78241077861566f2c82da955e7fa">
-        <dex dex="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-3886ef6b9f419831f2ce723c74116cc4b520cfa9.jar" />
-    </item>
-    <item
-        jar="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/7.5.0/jars/classes.jar"
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/7.5.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.0"
         sha1="63ec6e9f4fe5482a7447d0f3091b8e543a02554c">
-        <dex dex="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-eec903a01609ffaf7a475b74d2380286ac0b47ab.jar" />
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-c5fa5a453f64a382ab5b244223d0faaec133cc41.jar" />
     </item>
     <item
-        jar="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appstate/7.5.0/jars/classes.jar"
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="f02127a85abd52a2cd526d4c2409f21969f80ee8">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-0f971804d9dd4fc00f2b0c4fe24bab326c6184db.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="6440e5e5cfe368f9bff3c537fb8988048069cb33">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-1c58ecc08682954c7b0da190815ce9c9a552e8c0.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="ba207be21987c11b37d9f8faa08ed6e722569f30">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-1dec347afbcfa4e894d2f50fb78d1649f7d206f0.jar" />
+    </item>
+    <item
+        jar="/Users/maria/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.0.0/4c8d1536dba3812cc1592090dc20c47a4ed3c35e/okhttp-2.0.0.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="4c8d1536dba3812cc1592090dc20c47a4ed3c35e">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/okhttp-2.0.0-eebd7b5e7a63d2319af3db82895627a3a7e3139f.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.0.0/jars/libs/internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="ba3df4eb0a630d7de294f0e48d3f9267d279b784">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/internal_impl-22.0.0-1017daf5326ae61b96bc8395a4440d067342ed22.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-c894d22fbd14c73a438f1c7b0eb2d8f3cbe7ea1b.jar" />
+    </item>
+    <item
+        jar="/Users/maria/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/retrofit/1.8.0/a517f29ed06be2b2879524fcd94b6e9b36e2e0b5/retrofit-1.8.0.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="a517f29ed06be2b2879524fcd94b6e9b36e2e0b5">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/retrofit-1.8.0-e1800381a868d21b90603eea54ef7bf5f2d2ed21.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/se.emilsjolander/stickylistheaders/2.4.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="a6f266a9ae5273ae08a1d758e6a05c927690f19f">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-44ea85a49849a1c514c7cf92251652a04c60377c.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="06a42becc33232ec0ee125161da68c1829c9f8fd">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-8bd756b2971a91e102d9323b35e2ad0b24011e3e.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="a172852a35ff919e85b9b7f14bbc15c5bee25520">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-376748311a60f078854adce35ac7e84af2dad6c3.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="a78183f30e769a98ab4820794f597763088d3065">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-9ec6e7faa4f0a8aad3be1c292db1012cfdbb8d5e.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/spotify-player-1.0.0-beta10/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="303cdfb0e82e35c8ee189313e3d0ccc144accdc4">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-f44d4ade30f13ec0b64259a9032490b71c09b802.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.github.johnkil.android-robototextview/robototextview/2.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="b041169a5dce7f40a0b6162be23f0f000e8278c9">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-9299b59d00a217e3396b62f97010c9171787fcf0.jar" />
+    </item>
+    <item
+        jar="/Users/maria/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp-urlconnection/2.0.0/afe8399d352713b66e597e9670c741d1e60ae923/okhttp-urlconnection-2.0.0.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="afe8399d352713b66e597e9670c741d1e60ae923">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/okhttp-urlconnection-2.0.0-ad7a0fc140d2355b184271e5c2a07c549439df79.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="8d736fefa22d896e84a268354b3ed48a42663150">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-48981c9e74c296e0118e7b34fb95ff9072dc0f3e.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="d405025c600055237c171a0bbabaa49d69696573">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-26435d2a64dcf6a3be6869ea0ce69c57e8d075d2.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="f44d03c138cb6488fdbaa65e3a7e5878861a56d8">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-a78fc44dbdffc1e7507c62e98a9fc0ecfef0f446.jar" />
+    </item>
+    <item
+        jar="/Users/maria/.gradle/caches/modules-2/files-2.1/de.greenrobot/eventbus/2.4.0/ddd166d01b3158d1c00576d29f7ed15c030df719/eventbus-2.4.0.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="ddd166d01b3158d1c00576d29f7ed15c030df719">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/eventbus-2.4.0-d079bf2307a828f4d574abc7a9a3471d1478708a.jar" />
+    </item>
+    <item
+        jar="/Users/maria/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3/5fc52c41ef0239d1093a1eb7c3697036183677ce/gson-2.3.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="5fc52c41ef0239d1093a1eb7c3697036183677ce">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/gson-2.3-66ccdf1cf2e119760cd43ea9bdd1238d658b01cb.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/spotify-player-1.0.0-beta10/jars/libs/jnihelpers-1.0.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="863562b367d763d45f9bb44f58a5029007f79555">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/jnihelpers-1.0-88c50d34d036f22dfa30a30e15e70c57d54d0da2.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="272bc5d7063f24bc3a33ea1d318cde8f31f5ec4c">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-2b4561194ef3d56373e03f6043b3a9667a10f02c.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appstate/7.5.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.0"
         sha1="68c140702c7242d914655bcb3164d9e8c45b84cb">
-        <dex dex="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-71963970514a161715df4981251dc5f838b5a534.jar" />
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-83859b55d4a901318baa3368e7f53807f507efeb.jar" />
     </item>
     <item
-        jar="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.5.0/jars/classes.jar"
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/7.5.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.0"
-        sha1="1a6411087ab88ce5542f593e63a2752b6b0d6f1a">
-        <dex dex="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-5b3ef6d09f29c0081b247edab1ebe4c1ac132bcb.jar" />
+        sha1="02bac2dc792d78241077861566f2c82da955e7fa">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-cd8dc08e3818bc2c41e4c43565ce20c5048ae607.jar" />
     </item>
     <item
-        jar="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="e7b35244f50663b3f8d150714bca9ecd7a290da1">
-        <dex dex="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-f51c3bd070ca2693399e048232259628431e279d.jar" />
-    </item>
-    <item
-        jar="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="29ebc7e04d877062317c8cc0e68b20f0c1fcda66">
-        <dex dex="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-a2c9b14e11029bb20613cefd4fee283043090c60.jar" />
-    </item>
-    <item
-        jar="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.5.0/jars/classes.jar"
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.5.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.0"
         sha1="69dd177337ead693c408c8dddc9546bb6f1244fa">
-        <dex dex="/home/nicolasbuchhalter/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-cc1c3abd25d1e862d5bf1da58d689b17350507ea.jar" />
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-440d010b352debb601a479654bda9092bbdce666.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/support-annotations-22.2.1-fa531d4782e906cdcd78bc3598aa8f38e568d0d5.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="a1372c17fccacca753d3951d3ad820571cbce075">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-169267e1db937eec8a7421489c28916994502f14.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="e7b35244f50663b3f8d150714bca9ecd7a290da1">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-65f961e40d69c49102d360af161fe4e1480a63a2.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="1a6411087ab88ce5542f593e63a2752b6b0d6f1a">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-7423fed0444bce3e3cc12bf83e107734eaa0f599.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-142c5481219fd4332a0207552ad9979adcbfd020.jar" />
+    </item>
+    <item
+        jar="/Users/maria/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.0.0/2534c458682c73f5b9871131ab3098d3f987ca3/okio-1.0.0.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="02534c458682c73f5b9871131ab3098d3f987ca3">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/okio-1.0.0-9ff201d249fbc3531206fa694b2eec794da29027.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="29ebc7e04d877062317c8cc0e68b20f0c1fcda66">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-62560ba9d5fc3da4c623bb714b4059afd933abd3.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-bb1e40e40e12b58998e0cbcffd10123028207300.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="6836d188602ec5382d1967c58b00960eb8ff8773">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-0471ffe87d1544c8d283bf599c08d40bc4f01045.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/spotify-auth-1.0.0-beta10/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="a2736a2c8e3bd1d508baa11851e9a77f62646d08">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/classes-2cb9572dc9e523f97a47b3a779ff2ac7a1e7de3b.jar" />
+    </item>
+    <item
+        jar="/Users/maria/Proyectos/listn-android/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/libs/internal_impl-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/internal_impl-22.2.1-7abdb775f57743dd8fd2290c7e173ab1a760cf3e.jar" />
+    </item>
+    <item
+        jar="/Users/maria/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.3.4/3b646ddbdac8a33fc45b64564011da81d23e4635/picasso-2.3.4.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="3b646ddbdac8a33fc45b64564011da81d23e4635">
+        <dex dex="/Users/maria/Proyectos/listn-android/app/build/intermediates/pre-dexed/stage/debug/picasso-2.3.4-34dfa82accb25ed4d853ec715bc62eed464744a5.jar" />
     </item>
 
 </items>

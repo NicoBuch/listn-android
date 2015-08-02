@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import ar.com.wolox.android.R;
@@ -11,7 +12,7 @@ import ar.com.wolox.android.utils.PreferencesUtils;
 
 public class MainActivity extends ListnActivity {
 
-    private Button mSearchButton;
+    private View mSearchButton;
 
     @Override
     protected int layout() {
@@ -20,7 +21,7 @@ public class MainActivity extends ListnActivity {
 
     @Override
     protected void setUi() {
-        mSearchButton = (Button) findViewById(R.id.button_search);
+        mSearchButton = findViewById(R.id.button_search);
     }
 
     @Override

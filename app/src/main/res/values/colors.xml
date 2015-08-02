@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="color_listn">#5E1E74</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="violet">#5E1E75</color>
+    <color name="blue">#127EFF</color>
+    <color name="red">#D22633</color>
+    <color name="green">#8CC63F</color>
 </resources>
