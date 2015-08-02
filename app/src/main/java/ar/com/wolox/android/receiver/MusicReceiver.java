@@ -33,7 +33,8 @@ public class MusicReceiver extends BroadcastReceiver {
 
         String id = intent.getStringExtra("id");
         if (id != null) {
-            id = id.split(":")[2];
+            String[] idArray = id.split(":");
+            id = idArray[idArray.length - 1];
             SpotifyUtils.getSpotifyApi().getService().getTrack(id, new WoloxCallback<Track>() {
                 @Override
                 public void success(kaaes.spotify.webapi.android.models.Track track, Response response) {
