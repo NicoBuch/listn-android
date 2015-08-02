@@ -91,7 +91,7 @@ public class ListnApplication extends Application implements GoogleApiClient.Con
                 .setConverter(new GsonConverter(gson))
                 .setRequestInterceptor(sSecureRequestInterceptor)
                 .build();
-        sUserService = apiaryAdapter.create(UserService.class);
+        sUserService = apiAdapter.create(UserService.class);
     }
 
     public static UserService getsUserService() {
