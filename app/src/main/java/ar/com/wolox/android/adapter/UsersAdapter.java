@@ -22,6 +22,7 @@ import ar.com.wolox.android.ListnApplication;
 import ar.com.wolox.android.R;
 import ar.com.wolox.android.callback.WoloxCallback;
 import ar.com.wolox.android.model.User;
+import ar.com.wolox.android.transformation.CircleTransform;
 import ar.com.wolox.android.utils.PreferencesUtils;
 import ar.com.wolox.android.utils.SpotifyUtils;
 import kaaes.spotify.webapi.android.models.UserPublic;
@@ -70,8 +71,6 @@ public class UsersAdapter extends BaseAdapter {
             item = new ViewHolderItem();
             convertView.setTag(item);
 
-
-
             item.textViewUsername = (TextView) convertView.findViewById(R.id.username_text_view);
             item.textViewDistance = (TextView) convertView.findViewById(R.id.distance_text_view);
             item.textViewTrackname = (TextView) convertView.findViewById(R.id.track_name_text_view);
@@ -109,6 +108,7 @@ public class UsersAdapter extends BaseAdapter {
             public void success(UserPublic userPublic, Response response) {
 
                 Picasso.with(ListnApplication.getInstance()).load(userPublic.images.get(0).url)
+                        .transform(new CircleTransform())
                         .error(R.drawable.home_like_button_on)
                         .noFade()
                         .into(item.imageViewUser);
