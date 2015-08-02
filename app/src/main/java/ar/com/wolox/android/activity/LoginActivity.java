@@ -51,6 +51,7 @@ import com.spotify.sdk.android.player.PlayerState;
 import ar.com.wolox.android.Configuration;
 import ar.com.wolox.android.ListnApplication;
 import ar.com.wolox.android.R;
+import ar.com.wolox.android.callback.WoloxCallback;
 import ar.com.wolox.android.utils.PreferencesUtils;
 import ar.com.wolox.android.utils.SpotifyUtils;
 import kaaes.spotify.webapi.android.SpotifyApi;
@@ -120,6 +121,16 @@ public class LoginActivity extends ListnActivity implements
             if (response.getType() == AuthenticationResponse.Type.TOKEN) {
                 Log.d(TAG, "Expires in: " +  response.getExpiresIn());
                 PreferencesUtils.setAccessToken(response.getAccessToken());
+
+                SpotifyUtils.getSpotifyApi().getService().getMe(new WoloxCallback<UserPrivate>() {
+                    @Override
+                    public void success(UserPrivate userPrivate, Response response) {
+                        PreferencesUtils.setSpotifyUserId(userPrivate.id);
+                    }
+
+                });
+
+
                 Intent mainIntent = new Intent(this, MainActivity.class);
                 startActivity(mainIntent);
                 finish();

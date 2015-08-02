@@ -11,6 +11,7 @@ import ar.com.wolox.android.ListnApplication;
 public class PreferencesUtils {
 
     private static final String ACCESS_TOKEN_KEY = "accessToken";
+    private static final String SPOTIFY_USER_ID = "spotifyUserId";
 
     public static void setAccessToken(String accessToken) {
         getSharedPreferences().edit()
@@ -25,4 +26,18 @@ public class PreferencesUtils {
     public static String getAccessToken() {
         return getSharedPreferences().getString(ACCESS_TOKEN_KEY, null);
     }
+
+    public static String getSpotifyUserId(){
+        return getSharedPreferences().getString(SPOTIFY_USER_ID, null);
+    }
+
+    public static void setSpotifyUserId(String spotifyUserId) {
+        getSharedPreferences().edit()
+                .putString(SPOTIFY_USER_ID, spotifyUserId)
+                .commit();
+    }
+
+
+
+
 }

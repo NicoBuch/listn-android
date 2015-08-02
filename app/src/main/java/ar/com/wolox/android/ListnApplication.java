@@ -42,6 +42,7 @@ import ar.com.wolox.android.model.Track;
 import ar.com.wolox.android.model.UserUpdate;
 import ar.com.wolox.android.service.UserService;
 import ar.com.wolox.android.service.interceptor.SecuredRequestInterceptor;
+import ar.com.wolox.android.utils.PreferencesUtils;
 import ar.com.wolox.android.utils.SpotifyUtils;
 import de.greenrobot.event.EventBus;
 
@@ -59,6 +60,7 @@ public class ListnApplication extends Application implements GoogleApiClient.Con
     public static final String CURRENT_ARTIST = "artist";
     public static final String CURRENT_ALBUM = "album";
     public static final String CURRENT_PLAYING = "playing";
+    private static final String SPOTIFY_USER_ID = "id";
 
     private static ListnApplication sApplication;
     private static RequestInterceptor sSecureRequestInterceptor;
@@ -206,12 +208,17 @@ public class ListnApplication extends Application implements GoogleApiClient.Con
 
     @Override
     public void onLocationChanged(Location location) {
+
+        if(PreferencesUtils.getSpotifyUserId() == null){
+            return;
+        }
         mCurrentLocation = location;
         mLastUpdateTime = DateFormat.getTimeInstance().format(new Date());
         UserUpdate mUserUpdate = new UserUpdate();
         mUserUpdate.setLatitude(location.getLatitude());
         mUserUpdate.setLongitude(location.getLongitude());
-        sUserService.updateUsers("lala", mUserUpdate, new WoloxCallback<Response>(){
+
+        sUserService.updateUsers(PreferencesUtils.getSpotifyUserId(), mUserUpdate, new WoloxCallback<Response>(){
 
             @Override
             public void success(Response o, Response response) {
@@ -253,8 +260,7 @@ public class ListnApplication extends Application implements GoogleApiClient.Con
 
             UserUpdate mUserUpdate = new UserUpdate();
 
-
-            sUserService.updateUsers("lala", mUserUpdate, new WoloxCallback<Response>() {
+            sUserService.updateUsers(PreferencesUtils.getSpotifyUserId(), mUserUpdate, new WoloxCallback<Response>() {
 
                 @Override
                 public void success(Response o, Response response) {

@@ -76,19 +76,7 @@ public class MainActivity extends ListnActivity  {
 
     @Override
     protected void populate() {
-        SpotifyApi api = SpotifyUtils.getSpotifyApi();
-        SpotifyService service =  api.getService();
-        service.getMe(new Callback<UserPrivate>() {
-            @Override
-            public void success(UserPrivate userPrivate, Response response) {
-                //mNameText.setText(userPrivate.display_name);
-            }
 
-            @Override
-            public void failure(RetrofitError error) {
-                //mNameText.setText("NO FUNCIONO LA MIERDA ESTA");
-            }
-        });
         SharedPreferences prefs = getSharedPreferences("ListnApp", MODE_PRIVATE);
         Boolean playing = prefs.getBoolean(ListnApplication.CURRENT_PLAYING, false);
         if (playing) {
