@@ -35,11 +35,20 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.TimeZone;
 
+import ar.com.wolox.android.callback.WoloxCallback;
 import ar.com.wolox.android.event.PlayingTrackUpdateEvent;
+import ar.com.wolox.android.model.Track;
+import ar.com.wolox.android.model.UserUpdate;
+import ar.com.wolox.android.service.UserService;
 import ar.com.wolox.android.service.interceptor.SecuredRequestInterceptor;
+import ar.com.wolox.android.utils.SpotifyUtils;
 import de.greenrobot.event.EventBus;
+
+import retrofit.Callback;
 import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 import retrofit.converter.GsonConverter;
 
 public class ListnApplication extends Application implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
@@ -48,6 +57,7 @@ public class ListnApplication extends Application implements GoogleApiClient.Con
 
     private static ListnApplication sApplication;
     private static RequestInterceptor sSecureRequestInterceptor;
+    private static UserService sUserService;
 
     static {
         buildRestServices();
@@ -68,6 +78,7 @@ public class ListnApplication extends Application implements GoogleApiClient.Con
         RestAdapter apiaryAdapter = new RestAdapter.Builder()
                 .setEndpoint(Configuration.APIARY_ENDPOINT)
                 .setConverter(new GsonConverter(gson))
+                .setLogLevel(RestAdapter.LogLevel.FULL)
                 .setRequestInterceptor(sSecureRequestInterceptor)
                 .build();
         RestAdapter apiAdapter = new RestAdapter.Builder()
@@ -75,6 +86,11 @@ public class ListnApplication extends Application implements GoogleApiClient.Con
                 .setConverter(new GsonConverter(gson))
                 .setRequestInterceptor(sSecureRequestInterceptor)
                 .build();
+        sUserService = apiaryAdapter.create(UserService.class);
+    }
+
+    public static UserService getsUserService() {
+        return sUserService;
     }
 
     @Override
@@ -195,6 +211,17 @@ public class ListnApplication extends Application implements GoogleApiClient.Con
     public void onLocationChanged(Location location) {
         mCurrentLocation = location;
         mLastUpdateTime = DateFormat.getTimeInstance().format(new Date());
+        UserUpdate mUserUpdate = new UserUpdate();
+        mUserUpdate.setLatitude(location.getLatitude());
+        mUserUpdate.setLongitude(location.getLongitude());
+        sUserService.updateUsers("lala", mUserUpdate, new WoloxCallback(){
+
+            @Override
+            public void success(Object o, Response response) {
+                Log.d(TAG, "User Updated");
+            }
+        });
+
     }
 
     private String mTrack;
@@ -205,10 +232,28 @@ public class ListnApplication extends Application implements GoogleApiClient.Con
         @Override
         public void onReceive(Context context, Intent intent) {
 
-            // TODO: Tirar a la base de datos el track actual
             String track = intent.getStringExtra("track");
             String artist = intent.getStringExtra("artist");
             boolean playing = intent.getBooleanExtra("playing", false);
+
+            String id = intent.getStringExtra("id").split(":")[2];
+
+            Track mTrack = new Track();
+            mTrack.setId(id);
+            mTrack.setName(track);
+            mTrack.setArtist(artist);
+            mTrack.setPlaying(playing);
+            UserUpdate mUserUpdate = new UserUpdate();
+            mUserUpdate.setTrack(mTrack);
+
+            sUserService.updateUsers("lala", mUserUpdate, new WoloxCallback() {
+
+                @Override
+                public void success(Object o, Response response) {
+                    Log.d(TAG, "User Updated");
+                }
+            });
+
             bus.post(new PlayingTrackUpdateEvent(artist, track, playing));
 
         }
